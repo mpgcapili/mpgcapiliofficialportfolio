@@ -1,14 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import '@awesome.me/webawesome/dist/styles/webawesome.css';
+import '@awesome.me/webawesome/dist/webawesome.js';
+import '@awesome.me/webawesome/dist/components/button/button.js';
 
 function App() {
-  const [count, setCount] = useState(0)
+let sales: number = 123_123_123;
+console.log(sales);
 
   return (
     <>
-      <div>
+      <h1>This is title</h1>
+      <wa-button variant="brand" size="medium" pill>This is button</wa-button>
+      {/* <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -16,7 +19,8 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <Title /> 
+      <h1>Vite + React try this</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -27,7 +31,7 @@ function App() {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
     </>
   )
 }
