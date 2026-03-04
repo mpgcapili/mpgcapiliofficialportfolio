@@ -2,7 +2,9 @@ import type { CustomElements, CustomCssProperties } from '@awesome.me/webawesome
 
 declare module 'react' {
   namespace JSX {
-    interface IntrinsicElements extends CustomElements {}
+    interface IntrinsicElements extends CustomElements {
+      'mp-card': HTMLAttributes<HTMLElement>;
+    }
   }
   interface CSSProperties extends CustomCssProperties {}
 }

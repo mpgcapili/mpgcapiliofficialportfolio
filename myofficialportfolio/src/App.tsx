@@ -2,6 +2,7 @@ import './App.css';
 import '@awesome.me/webawesome/dist/styles/webawesome.css';
 import '@awesome.me/webawesome/dist/webawesome.js';
 import '@awesome.me/webawesome/dist/components/button/button.js';
+import './components/project-card'
 
 function App() {
 let sales: number = 123_123_123;
@@ -11,6 +12,8 @@ console.log(sales);
     <>
       <h1>This is title</h1>
       <wa-button variant="brand" size="medium" pill>This is button</wa-button>
+      <mp-card></mp-card>
+      
       {/* <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
