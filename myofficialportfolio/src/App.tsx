@@ -1,40 +1,18 @@
 import './App.css';
-import '@awesome.me/webawesome/dist/styles/webawesome.css';
-import '@awesome.me/webawesome/dist/webawesome.js';
-import '@awesome.me/webawesome/dist/components/button/button.js';
-import './components/project-card'
+import { Routes, Route, Link} from 'react-router-dom';
+import Works from './pages/Works';
+import AboutMe from './pages/AboutMe';
+import NavBar from './components/NavBar';
 
-function App() {
-let sales: number = 123_123_123;
-console.log(sales);
-
+const App = () => {
   return (
     <>
-      <h1>This is title</h1>
-      <wa-button variant="brand" size="medium" pill>This is button</wa-button>
-      <mp-card></mp-card>
-      
-      {/* <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <Title /> 
-      <h1>Vite + React try this</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
+      <NavBar/> 
+      <Routes>
+        <Route path="/" element={<Works/>}/>
+        <Route path="/works" element={<Works/>}/>
+        <Route path="/aboutme" element={<AboutMe/>}/>
+      </Routes>
     </>
   )
 }
