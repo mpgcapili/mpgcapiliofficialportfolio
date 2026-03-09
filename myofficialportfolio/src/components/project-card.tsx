@@ -1,5 +1,4 @@
 import { LitElement, css, html } from "lit";
-import '@awesome.me/webawesome/dist/components/badge/badge.js';
 
 export class ProjectCard extends LitElement {
     

@@ -1,9 +1,10 @@
-import '@awesome.me/webawesome/dist/components/tab-group/tab-group.js';
+import { Link } from "react-router-dom"
 
 const Works = () => {
   return (
     <>
-        <div>Works</div>
+        <h1>Works</h1>
+         
             <wa-tab-group>
                 <wa-tab panel='featured-work'>Featured Work</wa-tab>
                 <wa-tab panel='personal-project'>Personal Projects</wa-tab>

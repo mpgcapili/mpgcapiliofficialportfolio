@@ -2,7 +2,14 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import "./components/project-card.tsx";
+import "./components/theme-toggle.tsx";
 import '@awesome.me/webawesome/dist/styles/themes/default.css';
+import '@awesome.me/webawesome/dist/components/badge/badge.js';
+import '@awesome.me/webawesome/dist/components/tab-group/tab-group.js';
+import '@awesome.me/webawesome/dist/components/button/button.js';
+import '@awesome.me/webawesome/dist/components/dropdown/dropdown.js';
+import '@awesome.me/webawesome/dist/components/icon/icon.js';
+import '@awesome.me/webawesome/dist/components/divider/divider.js';
 
 import {BrowserRouter} from "react-router-dom";
 

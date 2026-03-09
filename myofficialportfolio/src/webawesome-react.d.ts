@@ -12,6 +12,7 @@ declare module 'react' {
         // For arrays/objects passed as strings, use string
         tags?: array; 
       };
+      'theme-toggle':HTMLAttributes<HTMLElement>;
     }
   }
   interface CSSProperties extends CustomCssProperties {}
