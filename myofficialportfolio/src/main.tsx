@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import "./components/project-card.tsx";
+import "./components/ProjectCard.tsx";
 import "./components/theme-toggle.tsx";
 import '@awesome.me/webawesome/dist/styles/themes/default.css';
 import '@awesome.me/webawesome/dist/components/badge/badge.js';

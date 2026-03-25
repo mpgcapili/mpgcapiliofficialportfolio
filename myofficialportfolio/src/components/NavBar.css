@@ -1,46 +1,173 @@
-.navbar{
-    display: flex;
-    align-items: center;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  height: var(--nav-bar-height);
+  padding: 12px var(--wa-space-l) 12px;
+  background-color: light-dark(rgba(255, 255, 255, .8), rgba(16, 18, 25, .8));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* 1. Put transition here so it works for OPEN and CLOSE */
+  transition:
+    padding .2s ease,
+    height .5s ease,
+    top .3s ease,
+    border-radius .3s ease,
+    opacity .5s ease,
+    visibility .3s ease,
+    background-color .3s ease;
+
 }
 
-.nav-items{
-    display: flex;
+.navbar>div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-items {
+  display: flex;
+  border-radius: var(--wa-border-radius-pill);
+  gap: var(--wa-space-xs);
+  /*8px*/
+  list-style-type: none;
+  height: fit-content;
+  width: fit-content;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.nav-items li {
+  display: flex;
+  padding: 12px 24px;
+}
+
+.nav-items li:not([class~="selected"]):hover {
+  cursor: pointer;
+  background-color: var(--wa-color-neutral-fill-quiet);
+  transition: background-color .3s ease;
+}
+
+.nav-items li:not([class~="selected"]):active {
+  cursor: pointer;
+  background-color: var(--wa-color-neutral-fill-normal);
+}
+
+.selected {
+  background-color: var(--wa-color-neutral-fill-loud);
+  color: var(--wa-color-neutral-on-loud);
+}
+
+.nav-items li {
+
+  &:first-child,
+  &:last-child {
     border-radius: var(--wa-border-radius-pill);
-    gap: var(--wa-space-xs); /*8px*/
-    list-style-type: none;
-    height: fit-content;
-    width: fit-content;
-    padding: 0;
-    margin: 0 auto;
+  }
 }
 
-.nav-items li{
-    display: flex;
-    padding: 16px 24px;
-}
-
-.nav-items li:not([class~="selected"]):hover{
-    cursor: pointer;
-    background-color: var(--wa-color-neutral-fill-quiet);
-}
-
-.nav-items li:not([class~="selected"]):active{
-    cursor: pointer;
-    background-color: var(--wa-color-neutral-fill-normal);
-}
-
-.selected{
-    background-color: var(--wa-color-neutral-fill-loud);
-    color: var(--wa-color-neutral-on-loud) ;
-}
-
-.nav-items li{
-    &:first-child,
-    &:last-child{
-        border-radius: var(--wa-border-radius-pill);
-    }
-}
-.react-link{
+.react-link {
+  list-style-type: none;
   text-decoration: none;
   color: inherit;
+}
+
+.navbar.show-nav-bar {
+  top: 0;
+  opacity: 1;
+  visibility: visible;
+
+}
+
+.navbar.hide-nav-bar {
+  opacity: 0;
+  visibility: hidden;
+  top: -30px;
+}
+
+@media (width < 768px) {
+
+  .navbar.nav-open {
+    height: 200px;
+    background-color: var(--wa-color-neutral-fill-quiet);
+    border-radius: 0 0 12px 12px;
+  }
+
+  .navbar.nav-close {
+    height: 60px;
+  }
+
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wa-space-s);
+    margin: 0;
+    margin-top: var(--wa-space-m);
+    padding: 0;
+
+    /* transition: opacity .3s .2s ease, height .3s ease, visibility .6s 0s; */
+    /* background-color: red; */
+    font-size: var(--wa-font-size-2xl);
+    overflow: hidden;
+  }
+
+  .nav-links.show-link {
+    opacity: 1;
+    height: 140px;
+    visibility: visible;
+    transition: height .3s .1s ease;
+  }
+
+  .nav-links.remove-link {
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+    transition: opacity 0s .4s ease, visibility 0s .5s ease, height .3s ease;
+  }
+
+  wa-dropdown-item::part(checkmark) {
+    visibility: visible !important;
+  }
+
+  .nav-links li {
+
+    /* put in parent to make sure that in and 
+    out of hover (and possibly others)have 
+    the same animation */
+    border-radius: var(--wa-border-radius-s);
+    transition: padding-left .3s ease, background-color .3s ease;
+
+    &:not(.selected):hover {
+      /* background-color: red; */
+      padding-left: var(--wa-space-s);
+      background-color: var(--wa-color-neutral-fill-normal);
+    }
+
+    &:active {
+      font-weight: var(--wa-font-weight-bold);
+    }
+  }
+
+  .selected {
+    font-weight: var(--wa-font-weight-bold);
+    padding-left: var(--wa-space-s);
+  }
+
+
+  .hide {
+    display: none;
+  }
+}
+
+@media (width > 767px) {
+  .hamburger {
+    display: none;
+  }
+
+  .nav-links {
+    display: none;
+  }
 }

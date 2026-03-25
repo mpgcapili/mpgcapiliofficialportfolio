@@ -1,30 +1,113 @@
-import { Link } from "react-router-dom";
-import "./NavBar.css";
-import { useParams } from "react-router-dom";
-import { useState } from 'react';
+import { Link, useLocation } from "react-router-dom";
+import "./navbar.css";
+import { useEffect, useRef, useState } from "react";
 
 const NavBar = () => {
-  let params = useParams();
-  const [activeItem, setActiveItem] = useState("works");
-  const navItems = [{id: "works", label: "WORKS", link:"/works"}, 
-                    {id: "aboutme", label: "ABOUT ME", link:"/aboutme"},];
-  console.log(params);
+  const fullUrl = useLocation();
+  const currUrl = fullUrl.pathname;
+  const [isOpen, setIsOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [showNav, setShowNav] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const navRef = useRef<HTMLDivElement>(null);
 
-  return(
+
+  // close nav when width is greater than 767px
+  useEffect(() => {
+    // handling resize
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      if (windowWidth > 767) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 767) {
+        setIsOpen(false);
+      }
+    });
+
+    // cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []) //make sure to run this only once.
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 35) {
+        setShowNav(false);
+        setIsOpen(false); // Pro-UX: Auto-close the mobile menu if they start scrolling!
+      }
+      // If we are scrolling UP
+      else {
+        setShowNav(true);
+      }
+      // Update the last scroll position to the current one
+      setLastScrollY(window.scrollY);
+    }
+
+    const handleClickOutside = (e: MouseEvent) => {
+      // check if nav.current is div nav (using ref={navRef})
+      // and if the click (e.target as node) is not being contained in nav
+      // then close it
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    // Event Listeners
+    window.addEventListener("scroll", handleScroll);
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleEsc);
+    }
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEsc);
+    };
+  }, [lastScrollY, isOpen])
+
+  // show nav when scrolling up, hide when scrolling down.
+  const LinkComponent = () => (
     <>
-    <div className="navbar">
-      <h3>MIGUEL CAPILI</h3>
-      <ul className="nav-items">
-        {navItems.map((item,index)=>(
-          <Link key={index} className="react-link" to={item.link}>
-            <li className={activeItem === item.id? "selected":""} 
-                onClick={()=>setActiveItem(item.id)}>{item.label}
-            </li>
-          </Link>
-        ))}
-      </ul>
-      <theme-toggle></theme-toggle>
-    </div>
+      <Link className="react-link" onClick={() => setIsOpen(!isOpen)} to="/works"><li className={` ${currUrl.includes("/works") ? "selected" : ""}`}>WORKS</li></Link>
+      <Link className="react-link" onClick={() => setIsOpen(!isOpen)} to="/aboutme"><li className={` ${currUrl.includes("/aboutme") ? "selected" : ""}`}>ABOUT ME</li></Link>
+    </>
+  )
+
+  return (
+    <>
+      <div
+        ref={navRef}
+        className={`navbar ${isOpen ? "nav-open" : "nav-close"} ${showNav ? "show-nav-bar" : "hide-nav-bar"}`}>
+        <div>
+          <h3 style={{ fontFamily: "ClashDisplay, sans-serif" }}>MIGUEL CAPILI</h3>
+          <ul className="nav-items hide">
+            <LinkComponent />
+          </ul>
+          <div>
+            <theme-toggle></theme-toggle>
+            <wa-button className="hamburger" variant="neutral" appearance="plain"
+              pill size="small" onClick={() => setIsOpen(!isOpen)}>
+              <wa-icon name={isOpen ? "x" : "bars"} ></wa-icon>
+            </wa-button>
+          </div>
+        </div>
+        <ul className={`nav-links ${isOpen ? "show-link" : "remove-link"} `}>
+          <LinkComponent />
+        </ul>
+      </div >
     </>
   )
 }

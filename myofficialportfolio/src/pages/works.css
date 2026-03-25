@@ -1,0 +1,34 @@
+wa-tab-group {
+  &::part(tabs) {
+    border-bottom: solid transparent;
+  }
+
+  &::part(base) {
+    container-type: inline-size;
+  }
+}
+
+
+
+/* wa-tab-panel */
+wa-tab-panel>div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wa-space-l);
+}
+
+wa-tab[active]::part(base) {
+  color: var(--wa-color-text-normal);
+  transition: color .5s;
+  border-block-end: solid 2px var(--wa-color-text-normal);
+  margin-block-end: -2px;
+}
+
+wa-tab::part(base) {
+  color: var(--wa-color-text-quiet);
+}
+
+wa-tab::part(base):hover {
+  color: var(--wa-color-text-normal);
+  transition: color .2s;
+}

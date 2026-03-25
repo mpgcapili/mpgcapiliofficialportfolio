@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Works from './pages/Works';
 import AboutMe from './pages/AboutMe';
 import NavBar from './components/NavBar';
@@ -14,18 +14,18 @@ import Crypto from './pages/personalProjects/Crypto';
 const App = () => {
   return (
     <>
-      <NavBar/> 
+      <NavBar />
       <Routes>
-        <Route path="/" element={<Works/>}/>
-        <Route path="/works" element={<Works/>} />
-        <Route path="/aboutme" element={<AboutMe/>}/>
-        {/* <Route path="/works/:typeofwork/:id" element={<AdminUi/>}/>
-        <Route path="/works/featured/aiguardrails" element={<AiGuardrails/>}/>
-        <Route path="/works/featured/designimport" element={<DesignImport/>}/>
-        <Route path="/works/featured/quickstart" element={<QuickStart/>}/>
-        <Route path="/works/personalwork/boltfood" element={<BoltFood/>}/>
-        <Route path="/works/personalwork/crypto" element={<Crypto/>}/> */}
-        <Route path="*" element={<NotFound/>}/>
+        <Route path="/" element={<Works />} />
+        <Route path="/works" element={<Works />} />
+        <Route path="/aboutme" element={<AboutMe />} />
+        <Route path="/works/featured/adminui" element={<AdminUi />} />
+        <Route path="/works/featured/aiguardrails" element={<AiGuardrails />} />
+        <Route path="/works/featured/designimport" element={<DesignImport />} />
+        <Route path="/works/featured/quickstart" element={<QuickStart />} />
+        <Route path="/works/personalwork/boltfood" element={<BoltFood />} />
+        <Route path="/works/personalwork/crypto" element={<Crypto />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   )

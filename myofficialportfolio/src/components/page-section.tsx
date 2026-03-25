@@ -1,22 +1,22 @@
 import { css, html, LitElement, type PropertyDeclarations } from "lit";
 
-export class ThemeToggle extends LitElement {
+export class PageSection extends LitElement {
 
-  static styles = css`
-    .theme wa-button::part(label){
-      display: flex;
-      gap: var(--wa-space-s);
-    }
-  `;
+  // static styles = css`
+  //   .theme wa-button::part(label){
+  //     display: flex;
+  //     gap: var(--wa-space-s);
+  //   }
+  // `;
 
   static properties = {
     _currentTheme: { type: String, state: true },
     _icon: { type: String, state: true },
     _themeName: { type: String, state: true },
-    _isChecked: { type: Boolean }
+    _isChecked: { type: Boolean, state: true }
   }
 
-  // declare _currentTheme: any;
+
   declare _currentTheme: string;
   declare _icon: string;
   declare _themeName: string;
@@ -42,12 +42,11 @@ export class ThemeToggle extends LitElement {
     super.disconnectedCallback();
   }
 
-
   render() {
     return html`
       <wa-dropdown class="theme" @wa-select=${this._themeSelector}>
         <wa-button slot="trigger" size="small" appearance="plain" pill>
-          <wa-icon name=${this._icon}></wa-icon> 
+          <wa-icon name=${this._icon} ></wa-icon> 
         </wa-button>
         <wa-dropdown-item type="checkbox" value="light" ?checked=${this._currentTheme === "light"}>Light
           <wa-icon slot="icon" name="sun" variant="regular"></wa-icon>
@@ -89,6 +88,7 @@ export class ThemeToggle extends LitElement {
     this._currentTheme = itemValue;
     const currTheme = localStorage.getItem("theme") ?? "light";
     if (lightdark.includes(currTheme)) {
+      console.log("removing query");
       this.#query.removeEventListener('change', this._handleSystemChange);
     }
     this._applyTheme(itemValue);
@@ -104,8 +104,7 @@ export class ThemeToggle extends LitElement {
       isDarkMode = this.#query.matches ? true : false;
     }
     document.documentElement.classList.toggle("wa-dark", isDarkMode);
-
   }
 }
 
-customElements.define('theme-toggle', ThemeToggle);
+customElements.define('page-section', PageSection);
