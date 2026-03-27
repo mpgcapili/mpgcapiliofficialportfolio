@@ -2,109 +2,69 @@ import { css, html, LitElement, type PropertyDeclarations } from "lit";
 
 export class PageSection extends LitElement {
 
-  // static styles = css`
-  //   .theme wa-button::part(label){
-  //     display: flex;
-  //     gap: var(--wa-space-s);
-  //   }
-  // `;
+  static styles = css`
 
-  static properties = {
-    _currentTheme: { type: String, state: true },
-    _icon: { type: String, state: true },
-    _themeName: { type: String, state: true },
-    _isChecked: { type: Boolean, state: true }
-  }
+    section[part="base"]{
+      margin-top: var(--wa-space-4xl);
+    }
+
+    .context-container {
+      font-family: var(--font-family);
+      font-size: var(--wa-font-size-m);
+      color: var(--wa-color-text-quiet);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+      
+    .context-container wa-divider {
+      --width: 2px;
+      --spacing: 0;
+      width: 24px;
+    }
+
+    h1 {
+      font-family: var(--font-family);
+      margin: 0;
+      margin-top: var(--wa-space-2xs);
+    }
+    p {
+      margin-block-end: 0;
+      color: var(--wa-color-text-quiet);
+      font-weight: var(--wa-font-weight-light);
+    }
+      
+  `;
 
 
-  declare _currentTheme: string;
-  declare _icon: string;
-  declare _themeName: string;
-  declare _isChecked: boolean;
-  #query = window.matchMedia('(prefers-color-scheme: dark)');
 
   constructor() {
     super();
-    // localStorage.removeItem('theme'); 
-    this._currentTheme = localStorage.getItem('theme') ?? 'light';
-    this._applyTheme(this._currentTheme);
-  }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#query.addEventListener('change', this._handleSystemChange);
-  }
 
-  disconnectedCallback() {
-    // Stop listening only if the Nav is removed/reset
-    // just making sure we clean up this when we swtich from main web to mobile web.
-    this.#query.removeEventListener('change', this._handleSystemChange);
-    super.disconnectedCallback();
   }
 
   render() {
     return html`
-      <wa-dropdown class="theme" @wa-select=${this._themeSelector}>
-        <wa-button slot="trigger" size="small" appearance="plain" pill>
-          <wa-icon name=${this._icon} ></wa-icon> 
-        </wa-button>
-        <wa-dropdown-item type="checkbox" value="light" ?checked=${this._currentTheme === "light"}>Light
-          <wa-icon slot="icon" name="sun" variant="regular"></wa-icon>
-        </wa-dropdown-item>
-        <wa-dropdown-item type="checkbox" value="dark" ?checked=${this._currentTheme === "dark"}>Dark
-          <wa-icon slot="icon" name="moon" variant="regular"></wa-icon>
-        </wa-dropdown-item>
-        <wa-divider></wa-divider>
-        <wa-dropdown-item type="checkbox" value="system" ?checked=${this._currentTheme === "system"}>System
-          <wa-icon slot="icon" name="circle-half-stroke"></wa-icon>
-        </wa-dropdown-item>
-      </wa-dropdown>
+      <section part="base">
+        <div class="context-container font-title">
+          <wa-divider></wa-divider>
+          <slot name="context"></slot>
+        </div>
+        <h1 class="title-container font-title">
+          <slot name="title"></slot>
+        </h1>
+        <p class="subtitle-container">
+            <slot name="subtitle"></slot>
+        </p>
+        <div>
+          <slot name="body"></slot>
+        </div>
+      </section>
     `;
   }
 
-  _setChecked(theme: string) {
-    const currTheme = localStorage.getItem("theme");
-    this._isChecked = theme === currTheme;
-  }
 
-  _setIcon(theme: string) {
-    const icons = { dark: "moon", light: "sun", system: "circle-half-stroke" }
-    this._icon = icons[theme as keyof typeof icons];
-  }
-
-  _handleSystemChange = () => {
-    const currTheme = localStorage.getItem("theme") ?? "light";
-    if (currTheme === "system") {
-      this._applyTheme("system")
-    }
-  }
-
-  _themeSelector = (e: any) => {
-    const itemValue = e.detail.item.value;
-    const lightdark = ['light', 'dark'];
-    this._setChecked(itemValue);
-
-    localStorage.setItem('theme', itemValue);
-    this._currentTheme = itemValue;
-    const currTheme = localStorage.getItem("theme") ?? "light";
-    if (lightdark.includes(currTheme)) {
-      console.log("removing query");
-      this.#query.removeEventListener('change', this._handleSystemChange);
-    }
-    this._applyTheme(itemValue);
-  }
-
-  _applyTheme = (theme: string) => {
-    this._setIcon(theme);
-    this._setChecked(theme);
-    let isDarkMode: boolean = theme === "dark" ? true : false;
-    // localStorage.setItem("theme", theme);
-    if (theme === "system") {
-      this.#query.addEventListener('change', this._handleSystemChange);
-      isDarkMode = this.#query.matches ? true : false;
-    }
-    document.documentElement.classList.toggle("wa-dark", isDarkMode);
-  }
 }
 
 customElements.define('page-section', PageSection);

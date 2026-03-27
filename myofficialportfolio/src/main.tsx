@@ -11,7 +11,14 @@ import '@awesome.me/webawesome/dist/components/dropdown/dropdown.js';
 import '@awesome.me/webawesome/dist/components/icon/icon.js';
 import '@awesome.me/webawesome/dist/components/divider/divider.js';
 
-import {BrowserRouter} from "react-router-dom";
+/* Import locomotive-scroll */
+import "locomotive-scroll/dist/locomotive-scroll.css";
+import LocomotiveScroll from "locomotive-scroll";
+
+/* Locomotive scroll instance */
+const locomotiveScroll = new LocomotiveScroll();
+
+import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>

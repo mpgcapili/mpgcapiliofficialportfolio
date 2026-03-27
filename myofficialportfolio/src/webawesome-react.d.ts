@@ -13,6 +13,7 @@ declare module 'react' {
         tags?: array; 
       };
       'theme-toggle':HTMLAttributes<HTMLElement>;
+      'page-section':HTMLAttributes<HTMLElement>;
       'wa-button':Partial<WaButtonProps & BaseProps<WaButton>> ;
     }
   }

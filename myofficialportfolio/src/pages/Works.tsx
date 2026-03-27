@@ -1,9 +1,6 @@
 import ProjectCard from "../components/ProjectCard"
 import './works.css';
 
-const arr: string[] = ["arr1", "arr2"];
-
-
 const featuredProj = [
 	{
 		title: "ADMIN UI",
@@ -122,45 +119,45 @@ const personalProj = [
 const Works = () => {
 	return (
 		<>
-			<h1 className="font-title">Works</h1>
-			<wa-tab-group>
-				<wa-tab panel='featured-work'>Featured Work</wa-tab>
-				<wa-tab panel='personal-project'>Personal Projects</wa-tab>
-				<wa-tab-panel name='featured-work'>
-					<div>
-						{featuredProj.map((project, key) => (
-							<ProjectCard
-								key={key}
-								projtitle={project.title}
-								year={project.year}
-								position={project.position}
-								desc={project.desc}
-								tags={project.tags}
-								link={project.link}
-							/>
-						))}
-						{/* <ProjectCard projtitle="AI GUARDRAILS" tags={arr}></ProjectCard>
-						<ProjectCard projtitle="ADMIN UI" tags={arr}></ProjectCard>
-						<ProjectCard projtitle="DESIGN IMPORT" tags={arr}></ProjectCard>
-						<ProjectCard projtitle="QUICK START" tags={arr}></ProjectCard> */}
-					</div>
-				</wa-tab-panel>
-				<wa-tab-panel name='personal-project'>
-					<div>
-						{personalProj.map((project, key) => (
-							<ProjectCard
-								key={key}
-								projtitle={project.title}
-								year={project.year}
-								position={project.position}
-								desc={project.desc}
-								tags={project.tags}
-								link={project.link}
-							/>
-						))}
-					</div>
-				</wa-tab-panel >
-			</wa-tab-group>
+			<div className="work-container">
+				<div>
+					<h1 className="font-title">Works</h1>
+					<wa-tab-group>
+						<wa-tab panel='featured-work'>Featured Work</wa-tab>
+						<wa-tab panel='personal-project'>Personal Projects</wa-tab>
+						<wa-tab-panel name='featured-work'>
+							<div>
+								{featuredProj.map((project, key) => (
+									<ProjectCard
+										key={key}
+										projtitle={project.title}
+										year={project.year}
+										position={project.position}
+										desc={project.desc}
+										tags={project.tags}
+										link={project.link}
+									/>
+								))}
+							</div>
+						</wa-tab-panel>
+						<wa-tab-panel name='personal-project'>
+							<div>
+								{personalProj.map((project, key) => (
+									<ProjectCard
+										key={key}
+										projtitle={project.title}
+										year={project.year}
+										position={project.position}
+										desc={project.desc}
+										tags={project.tags}
+										link={project.link}
+									/>
+								))}
+							</div>
+						</wa-tab-panel >
+					</wa-tab-group>
+				</div>
+			</div>
 		</>
 	)
 }

@@ -1,0 +1,22 @@
+.adminui-container {}
+
+section.hero {
+  background-color: red;
+  height: 70vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.adminui-container wa-button {
+  position: absolute;
+  top: 100px;
+  left: var(--wa-space-s);
+}
+
+.adminui-body {
+  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+
+}

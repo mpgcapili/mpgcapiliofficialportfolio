@@ -1,3 +1,10 @@
+.work-container {
+  padding: 0 var(--wa-space-m);
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-top: calc(var(--nav-bar-height) + 2rem);
+}
+
 wa-tab-group {
   &::part(tabs) {
     border-bottom: solid transparent;
