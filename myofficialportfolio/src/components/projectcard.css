@@ -44,6 +44,11 @@
   gap: var(--wa-space-l);
 }
 
+.desc {
+  color: var(--wa-color-text-quiet);
+  font-weight: var(--wa-font-weight-light);
+}
+
 @container (width > 768px) {
   .card-container {
     grid-template-columns: 3fr 2fr;

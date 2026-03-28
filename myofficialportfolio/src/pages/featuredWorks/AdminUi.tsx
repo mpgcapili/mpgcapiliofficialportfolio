@@ -1,38 +1,117 @@
 import React from 'react'
-import './adminui.css';
+import './page-content.css';
 import { Link } from 'react-router-dom';
 import '../../components/page-section.tsx';
+import '../../components/page-subsection.tsx';
 
 const AdminUi = () => {
   return (
     <>
-      <div className='adminui-container'>
+      <div className='page-container'>
         <Link to="/works">
           <wa-button pill appearance="plain" size="small">
             <wa-icon slot="start" name="angle-left"></wa-icon>
             Back
           </wa-button></Link>
-        <section className='hero'>
-          asdf
-
+        <section className='adminui-hero'>
+          <div className='adminui-hero-cover'>
+            <div>
+              <p>ADMIN UI</p>
+            </div>
+          </div>
         </section>
-        <section className='adminui-body'>
+        <section className='page-body'>
           <section>
             Tree
           </section>
           <section>
             <page-section>
-              <div slot='context'>Project</div>
-              <div slot='title'>AdminUI</div>
-              <div slot='subtitle'>Web interface that allows access and manipulate Domino database using standard HTTP request</div>
+              <span slot='context'>Project</span>
+              <span slot='title'>AdminUI</span>
+              <span slot='subtitle'>Web interface that allows access and manipulate Domino database using standard HTTP request.</span>
             </page-section>
 
             <page-section>
-              <div slot='context'>Role</div>
-              <div slot='title'>UI/UX Designer</div>
-              <div slot='subtitle'>Led the end-to-end UI/UX redesign of the AdminUI to enhance User Experience,
+              <span slot='context'>Role</span>
+              <span slot='title'>UI/UX Designer</span>
+              <span slot='subtitle'>Led the end-to-end UI/UX redesign of the AdminUI to enhance User Experience,
                 focusing on streamlining complex workflows and improving overall visual clarity.
-              </div>
+              </span>
+            </page-section>
+
+            <page-section>
+              <span slot='context'>UX #1</span>
+              <span slot='title'>Improved Card Design</span>
+              <span slot='body'>
+                <page-subsection>
+                  <span slot='title'>Old Design:</span>
+                  <span slot='subtitle'>Inconsistent padding introduces horizontal scrolling, disrupting description layout and making it more
+                    difficult for users to efficiently scan the cards.</span>
+                </page-subsection>
+
+                <page-subsection>
+                  <span slot='title'>Old vs New Design:</span>
+                  <span slot='subtitle'>The updated design enhances visual clarity, making it easier for users to quickly scan and process card information.</span>
+                </page-subsection>
+              </span>
+            </page-section>
+
+            <page-section>
+              <span slot='context'>UX #2</span>
+              <span slot='title'>Simplifciation of Card Activation</span>
+              <span slot='body'>
+                <page-subsection>
+                  <span slot='title'>Old Design:</span>
+                  <span slot='subtitle'>The old design required users to drag inactive cards to an activation zone,
+                    creating unnecessary interaction and inefficient use of screen space.</span>
+                </page-subsection>
+
+                <page-subsection>
+                  <span slot='title'>Old vs New Design:</span>
+                  <span slot='subtitle'>The redesign replaces the drag interaction with a streamlined one-click activation process.</span>
+                </page-subsection>
+              </span>
+            </page-section>
+
+            <page-section>
+              <span slot='context'>UX #3</span>
+              <span slot='title'>Maximized the Use of Spaces</span>
+              <span slot='body'>
+                <page-subsection>
+                  <span slot='title'>Old Design:</span>
+                  <span slot='subtitle'>For context, this is the detailed settings view of a card.
+                    The layout contains significant unused space,
+                    while key components feel compressed, making the interface
+                    appear crowded and visually overwhelming.
+                  </span>
+                </page-subsection>
+
+                <page-subsection>
+                  <span slot='title'>Old vs New Design:</span>
+                  <span slot='subtitle'>The redesign optimizes space usage, reduces visual noise,
+                    and presents the content in a more structured layout.</span>
+                </page-subsection>
+              </span>
+            </page-section>
+
+            <page-section>
+              <span slot='context'>UX #4</span>
+              <span slot='title'>Introduced Responsiveness</span>
+              <span slot='body'>
+                <page-subsection>
+                  <span slot='title'>Old Design:</span>
+                  <span slot='subtitle'>Below is the first iteration of the redesigned layout. At this stage,
+                    Responsiveness had not yet been addressed, affecting usability
+                    and layout clarity
+                  </span>
+                </page-subsection>
+
+                <page-subsection>
+                  <span slot='title'>Old vs New Design:</span>
+                  <span slot='subtitle'>The redesigned layout scales effectively to smaller screen sizes,
+                    ensuring intuitive navigation, clear data readability, and easy access to key features.</span>
+                </page-subsection>
+              </span>
             </page-section>
           </section>
 

@@ -6,7 +6,11 @@
   z-index: 999;
   height: var(--nav-bar-height);
   padding: 12px var(--wa-space-l) 12px;
-  background-color: light-dark(rgba(255, 255, 255, .8), rgba(16, 18, 25, .8));
+
+  /* background-color: var(--bg-nav-color); */
+  /* color: #ffffff; */
+
+  background-color: var(--bg-nav-color);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   /* 1. Put transition here so it works for OPEN and CLOSE */
@@ -18,8 +22,25 @@
     opacity .5s ease,
     visibility .3s ease,
     background-color .3s ease;
-
 }
+
+.adminui {
+  --bg-nav-color: light-dark(#1a04243d, #0e001459);
+}
+
+.adminui,
+.adminui-color,
+.adminui theme-toggle::part(icon) {
+  color: #f1f2f3;
+}
+
+
+.adminui theme-toggle::part(btn-base):hover,
+.adminui wa-button.hamburger::part(base):hover {
+  background-color: #1a04243d;
+}
+
+
 
 .navbar>div {
   display: flex;
@@ -87,9 +108,11 @@
   top: -30px;
 }
 
+
 @media (width < 768px) {
 
   .navbar.nav-open {
+    color: inherit;
     height: 200px;
     background-color: var(--wa-color-neutral-fill-quiet);
     border-radius: 0 0 12px 12px;

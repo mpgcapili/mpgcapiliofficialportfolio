@@ -1,6 +1,14 @@
 :root {
   --nav-bar-height: 60px;
   --font-family: "Roboto Condensed", sans-serif;
+  --p-no-margin: 0;
+  --bg-nav-color: light-dark(rgba(255, 255, 255, 0.339), rgba(16, 18, 25, .8));
+}
+
+/* utility */
+.remove-margin {
+  margin: 0;
+  margin-block: 0;
 }
 
 .font-title {

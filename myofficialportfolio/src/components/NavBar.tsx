@@ -3,6 +3,7 @@ import "./navbar.css";
 import { useEffect, useRef, useState } from "react";
 
 const NavBar = () => {
+
   const fullUrl = useLocation();
   const currUrl = fullUrl.pathname;
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ const NavBar = () => {
   const [showNav, setShowNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const navRef = useRef<HTMLDivElement>(null);
-
+  const featuredWork: string[] = ["adminui", "designimport", "quickstart", "aiguardrails"]
 
   // close nav when width is greater than 767px
   useEffect(() => {
@@ -86,21 +87,29 @@ const NavBar = () => {
     </>
   )
 
+  const currPage = featuredWork.find(keyword => currUrl.includes(keyword));
+  const iconColor = `${currPage}-color`;
+  const navbarclasses: string = [
+    "navbar",
+    isOpen ? "nav-open" : "nav-close",
+    showNav ? "show-nav-bar" : "hide-nav-bar",
+    currPage
+  ].filter(Boolean).join(" ");
   return (
     <>
       <div
         ref={navRef}
-        className={`navbar ${isOpen ? "nav-open" : "nav-close"} ${showNav ? "show-nav-bar" : "hide-nav-bar"}`}>
+        className={navbarclasses}>
         <div>
           <h3 style={{ fontFamily: "ClashDisplay, sans-serif" }}>MIGUEL CAPILI</h3>
           <ul className="nav-items hide">
             <LinkComponent />
           </ul>
-          <div>
+          <div >
             <theme-toggle></theme-toggle>
             <wa-button className="hamburger" variant="neutral" appearance="plain"
               pill size="small" onClick={() => setIsOpen(!isOpen)}>
-              <wa-icon name={isOpen ? "x" : "bars"} ></wa-icon>
+              <wa-icon className={`${iconColor}`} name={isOpen ? "x" : "bars"} ></wa-icon>
             </wa-button>
           </div>
         </div>

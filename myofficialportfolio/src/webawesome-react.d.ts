@@ -14,6 +14,7 @@ declare module 'react' {
       };
       'theme-toggle':HTMLAttributes<HTMLElement>;
       'page-section':HTMLAttributes<HTMLElement>;
+      'page-subsection':HTMLAttributes<HTMLElement>;
       'wa-button':Partial<WaButtonProps & BaseProps<WaButton>> ;
     }
   }

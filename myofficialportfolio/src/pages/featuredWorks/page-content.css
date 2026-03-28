@@ -1,0 +1,39 @@
+section.hero {
+  container-type: inline-size;
+  height: 70vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.page-container wa-button {
+  position: absolute;
+  top: 100px;
+  left: var(--wa-space-s);
+}
+
+.page-body {
+  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+
+}
+
+.adminui-hero {
+
+  width: 100%;
+  height: 90vh;
+  background-image: linear-gradient(to right, #0e0014a0, #0e001429), url('../../assets/adminui.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.adminui-hero-cover {
+  font-family: var(--font-family);
+  font-size: var(--wa-font-size-4xl);
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  color: #ffffff;
+}

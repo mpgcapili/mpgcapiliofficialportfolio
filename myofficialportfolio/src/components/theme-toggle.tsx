@@ -46,8 +46,8 @@ export class ThemeToggle extends LitElement {
   render() {
     return html`
       <wa-dropdown class="theme" @wa-select=${this._themeSelector}>
-        <wa-button slot="trigger" size="small" appearance="plain" pill>
-          <wa-icon name=${this._icon}></wa-icon> 
+        <wa-button exportparts="base: btn-base" slot="trigger" size="small" appearance="plain" pill>
+          <wa-icon part="icon" name=${this._icon}></wa-icon> 
         </wa-button>
         <wa-dropdown-item type="checkbox" value="light" ?checked=${this._currentTheme === "light"}>Light
           <wa-icon slot="icon" name="sun" variant="regular"></wa-icon>
