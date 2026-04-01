@@ -79,13 +79,30 @@ const NavBar = () => {
     };
   }, [lastScrollY, isOpen])
 
-  // show nav when scrolling up, hide when scrolling down.
+  // to remove that flicker effect
+  const [currURL, setURL] = useState(["aboutme","works"].find(keyword=>currUrl.includes(keyword)));
+  // const [clicking, setClicking] = useState("");
+
+  const handleNavClick = (path: string) => {
+    setURL(path); // define which is selected
+    setIsOpen(!isOpen);
+  }
   const LinkComponent = () => (
     <>
-      <Link className="react-link" onClick={() => setIsOpen(!isOpen)} to="/works"><li className={` ${currUrl.includes("/works") ? "selected" : ""}`}>WORKS</li></Link>
-      <Link className="react-link" onClick={() => setIsOpen(!isOpen)} to="/aboutme"><li className={` ${currUrl.includes("/aboutme") ? "selected" : ""}`}>ABOUT ME</li></Link>
+      <Link className="react-link" onClick={() => handleNavClick("works")} to="/works">
+        <li className={` ${currURL === "works" ? "selected works" : " "}`}>WORKS</li>
+      </Link>
+      <Link className="react-link" onClick={() => handleNavClick("aboutme")} to="/aboutme">
+        <li className={` ${currURL === "aboutme" ? "selected aboutme" : " "}`}>ABOUT ME</li>
+      </Link>
     </>
   )
+  
+  // make sure to use currurl.indcludes logic, do i need this?
+  // i mean we are checking first the currurl.includes anyway, so if
+  // useEffect(() => {
+  //   setClicking("");
+  // }, [currUrl]);
 
   const currPage = featuredWork.find(keyword => currUrl.includes(keyword));
   const iconColor = `${currPage}-color`;

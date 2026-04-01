@@ -12,14 +12,28 @@
   background-color: var(--wa-color-surface-default);
 }
 
+.thumbnail-container.adminui{
+  background-image: url('../assets/adminui.jpg');
+}
+
 .thumbnail-container {
   border-radius: var(--wa-border-radius-m);
-  background-color: red;
+  /* background-color: red; */
+  /* border: 1px solid #270043; */
   height: 100%;
+  transition: transform .3s ease;
 
   &:hover {
     cursor: pointer;
+    transform: scale(.98);
   }
+
+  &:active{
+    transform: scale(.96);
+  }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .details {

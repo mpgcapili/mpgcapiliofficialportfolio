@@ -7,7 +7,7 @@ import '../../components/page-subsection.tsx';
 const AiGuardrails = () => {
   return (
     <>
-      <div className='page-container'>
+      <div className='page-container adminui'>
         <Link to="/works">
           <wa-button pill appearance="plain" size="small">
             <wa-icon slot="start" name="angle-left"></wa-icon>

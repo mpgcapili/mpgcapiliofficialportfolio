@@ -6,6 +6,7 @@ declare module 'react' {
       'project-card': HTMLAttributes<HTMLElement> & {
         // List your custom attributes here (use lowercase for attributes)
         projtitle?: string;
+        alias?: string;
         subtitle?: string;
         desc?: string;
         image?: string;
@@ -15,6 +16,8 @@ declare module 'react' {
       'theme-toggle':HTMLAttributes<HTMLElement>;
       'page-section':HTMLAttributes<HTMLElement>;
       'page-subsection':HTMLAttributes<HTMLElement>;
+      'compare-img':HTMLAttributes<HTMLElement>;
+      'page-tree':HTMLAttributes<HTMLElement>;
       'wa-button':Partial<WaButtonProps & BaseProps<WaButton>> ;
     }
   }

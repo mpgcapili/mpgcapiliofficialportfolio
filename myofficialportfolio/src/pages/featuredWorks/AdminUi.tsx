@@ -3,27 +3,27 @@ import './page-content.css';
 import { Link } from 'react-router-dom';
 import '../../components/page-section.tsx';
 import '../../components/page-subsection.tsx';
+import '../../components/compare-img.tsx';
+import '../../components/page-tree.tsx';
 
 const AdminUi = () => {
   return (
     <>
-      <div className='page-container'>
+      <div className='page-container adminui'>
         <Link to="/works">
-          <wa-button pill appearance="plain" size="small">
+          <wa-button className="back-button" pill appearance="plain" size="small">
             <wa-icon slot="start" name="angle-left"></wa-icon>
             Back
           </wa-button></Link>
-        <section className='adminui-hero'>
-          <div className='adminui-hero-cover'>
+        <section className='adminui-hero hero-settings'>
+          <div className='hero-text'>
             <div>
               <p>ADMIN UI</p>
             </div>
           </div>
         </section>
         <section className='page-body'>
-          <section>
-            Tree
-          </section>
+          <page-tree></page-tree>
           <section>
             <page-section>
               <span slot='context'>Project</span>
@@ -52,6 +52,9 @@ const AdminUi = () => {
                 <page-subsection>
                   <span slot='title'>Old vs New Design:</span>
                   <span slot='subtitle'>The updated design enhances visual clarity, making it easier for users to quickly scan and process card information.</span>
+                  <div slot='body'>
+                    <compare-img></compare-img>
+                  </div>
                 </page-subsection>
               </span>
             </page-section>

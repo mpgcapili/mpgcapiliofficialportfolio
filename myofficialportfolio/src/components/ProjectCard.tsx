@@ -1,10 +1,11 @@
 // import { LitElement, css, html } from "lit";
-import React from 'react';
-import './projectcard.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "./projectcard.css";
+import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
   projtitle: string;
+  alias: string;
   position: string;
   year: string;
   desc: string;
@@ -14,24 +15,23 @@ interface ProjectCardProps {
 
 type TagsProps = {
   tags: string[];
-}
+};
 
 const Tags = ({ tags }: TagsProps): any => (
   <>
     <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
       {tags.map((item, key) => (
-        <wa-badge key={key}
-          variant='neutral'
-          appearance='filled'
-          pill>{item}</wa-badge>
-      ))
-      }</div>
+        <wa-badge key={key} variant="neutral" appearance="filled" pill>
+          {item}
+        </wa-badge>
+      ))}
+    </div>
   </>
-)
-
+);
 
 const ProjectCard = ({
   projtitle,
+  alias,
   position,
   year,
   desc,
@@ -42,7 +42,7 @@ const ProjectCard = ({
     <>
       <div className="card-container">
         <Link to={link}>
-          <div className="thumbnail-container"></div>
+          <div className={`thumbnail-container ${alias}`}></div>
         </Link>
         <div className="details">
           <div>
@@ -61,7 +61,7 @@ const ProjectCard = ({
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;

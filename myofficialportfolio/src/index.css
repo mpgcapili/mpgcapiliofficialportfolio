@@ -2,7 +2,13 @@
   --nav-bar-height: 60px;
   --font-family: "Roboto Condensed", sans-serif;
   --p-no-margin: 0;
-  --bg-nav-color: light-dark(rgba(255, 255, 255, 0.339), rgba(16, 18, 25, .8));
+  --font-color-primary: var(--wa-color-text-normal);
+  --font-color-secondary: var(--wa-color-text-normal);
+  --nav-bg-color: light-dark(rgba(255, 255, 255, 0.339), rgba(16, 18, 25, .8));
+  --btn-nav-item-bg-color-selected: light-dark(rgba(8, 15, 55, 0.693), rgba(56, 63, 88, 0.573));
+
+  --btn-plain-bg-color-hover: light-dark(rgba(115, 122, 159, 0.269), rgba(30, 34, 51, 0.622));
+  --btn-plain-bg-color-active: var(--wa-color-fill-quiet, var(--wa-color-neutral-fill-quiet));
 }
 
 /* utility */
