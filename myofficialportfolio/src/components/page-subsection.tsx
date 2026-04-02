@@ -6,7 +6,6 @@ export class PageSubSection extends LitElement {
     h4,
     p{
       margin: 0;
-      
     }
 
     p{

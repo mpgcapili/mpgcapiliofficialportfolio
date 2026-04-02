@@ -1,7 +1,12 @@
 .work-container {
-  padding: 0 var(--wa-space-m);
+  padding: 0 var(--wa-space-l);
   max-width: 1280px;
-  min-height: 100vh; /*to remove that layout shift*/
+  /* min-height: 90dvh; */
+
+  /* height: calc(100dvh - 100px); */
+  height: 85dvh;
+  /*to remove that layout shift*/
+  overflow: hidden;
   margin: 0 auto;
   margin-top: calc(var(--nav-bar-height) + 2rem);
 }
@@ -16,8 +21,6 @@ wa-tab-group {
   }
 }
 
-
-/* wa-tab-panel */
 wa-tab-panel>div {
   display: flex;
   flex-direction: column;

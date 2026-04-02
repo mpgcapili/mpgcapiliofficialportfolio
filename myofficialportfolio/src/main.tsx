@@ -13,12 +13,12 @@ import '@awesome.me/webawesome/dist/components/divider/divider.js';
 import '@awesome.me/webawesome/dist/components/tree/tree.js';
 import '@awesome.me/webawesome/dist/components/tree-item/tree-item.js';
 
-/* Import locomotive-scroll */
-import "locomotive-scroll/dist/locomotive-scroll.css";
-import LocomotiveScroll from "locomotive-scroll";
+// /* Import locomotive-scroll */
+// import "locomotive-scroll/dist/locomotive-scroll.css";
+// import LocomotiveScroll from "locomotive-scroll";
 
-/* Locomotive scroll instance */
-const locomotiveScroll = new LocomotiveScroll();
+// /* Locomotive scroll instance */
+// const locomotiveScroll = new LocomotiveScroll();
 
 import { BrowserRouter } from "react-router-dom";
 

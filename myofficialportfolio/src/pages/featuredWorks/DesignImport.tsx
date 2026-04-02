@@ -1,20 +1,40 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { Link } from 'react-router-dom';
 import '../../components/page-section.tsx';
 import '../../components/page-subsection.tsx';
+/* Import locomotive-scroll */
+import "locomotive-scroll/dist/locomotive-scroll.css";
+import LocomotiveScroll from "locomotive-scroll";
 
 const DesignImport = () => {
+
+  useEffect(() => {
+    /* Locomotive scroll instance */
+    const locomotiveScroll = new LocomotiveScroll();
+
+    return () => {
+      // destroy before we mount new page
+      locomotiveScroll.destroy();
+    }
+  }, [])
+
   return (
     <>
-      <div className='page-container'>
+      <div className='page-container designimport'>
         <Link to="/works">
-          <wa-button pill appearance="plain" size="small">
+          <wa-button className="back-button" pill appearance="plain" size="small">
             <wa-icon slot="start" name="angle-left"></wa-icon>
             Back
           </wa-button></Link>
-        <section className='hero'>
-          asdf
+        <section className='designimport-hero hero-settings'>
+          <div className='hero-text'>
+            <div>
+              <p>DESIGN IMPORT</p>
+            </div>
+          </div>
+          <div className='hero-text-bg'></div>
+          <img src={`../../src/assets/designimport.png`} alt={`Design Import Thumbnail`} loading="lazy" />
 
         </section>
         <section className='page-body'>

@@ -1,10 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
 import "./navbar.css";
 import { useEffect, useRef, useState } from "react";
+/* Import locomotive-scroll */
+import "locomotive-scroll/dist/locomotive-scroll.css";
+import LocomotiveScroll from "locomotive-scroll";
 
+/* Locomotive scroll instance */
 const NavBar = () => {
 
   const fullUrl = useLocation();
+  const [url, setUrl] = useState(fullUrl)
   const currUrl = fullUrl.pathname;
   const [isOpen, setIsOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -12,6 +17,7 @@ const NavBar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const navRef = useRef<HTMLDivElement>(null);
   const featuredWork: string[] = ["adminui", "designimport", "quickstart", "aiguardrails"]
+
 
   // close nav when width is greater than 767px
   useEffect(() => {
@@ -80,7 +86,7 @@ const NavBar = () => {
   }, [lastScrollY, isOpen])
 
   // to remove that flicker effect
-  const [currURL, setURL] = useState(["aboutme","works"].find(keyword=>currUrl.includes(keyword)));
+  const [currURL, setURL] = useState(["aboutme", "works"].find(keyword => currUrl.includes(keyword)));
   // const [clicking, setClicking] = useState("");
 
   const handleNavClick = (path: string) => {
@@ -97,7 +103,7 @@ const NavBar = () => {
       </Link>
     </>
   )
-  
+
   // make sure to use currurl.indcludes logic, do i need this?
   // i mean we are checking first the currurl.includes anyway, so if
   // useEffect(() => {

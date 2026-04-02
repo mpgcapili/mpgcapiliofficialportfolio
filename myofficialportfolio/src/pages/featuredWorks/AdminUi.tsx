@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './page-content.css';
 import { Link } from 'react-router-dom';
 import '../../components/page-section.tsx';
 import '../../components/page-subsection.tsx';
 import '../../components/compare-img.tsx';
 import '../../components/page-tree.tsx';
+/* Import locomotive-scroll */
+import "locomotive-scroll/dist/locomotive-scroll.css";
+import LocomotiveScroll from "locomotive-scroll";
 
 const AdminUi = () => {
+
+  useEffect(() => {
+    /* Locomotive scroll instance */
+    const locomotiveScroll = new LocomotiveScroll();
+
+    return () => {
+      // destroy before we mount new page
+      locomotiveScroll.destroy();
+    }
+  }, [])
+
   return (
     <>
       <div className='page-container adminui'>
@@ -21,6 +35,8 @@ const AdminUi = () => {
               <p>ADMIN UI</p>
             </div>
           </div>
+          <div className='hero-text-bg'></div>
+          <img src={`../../src/assets/adminui.png`} alt={`ADMIN UI Thumbnail`} loading="lazy" />
         </section>
         <section className='page-body'>
           <page-tree></page-tree>

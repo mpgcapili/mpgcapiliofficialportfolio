@@ -1,21 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './page-content.css';
 import { Link } from 'react-router-dom';
 import '../../components/page-section.tsx';
 import '../../components/page-subsection.tsx';
 
+/* Import locomotive-scroll */
+import "locomotive-scroll/dist/locomotive-scroll.css";
+import LocomotiveScroll from "locomotive-scroll";
+
+/* Locomotive scroll instance */
 const AiGuardrails = () => {
+
+  useEffect(() => {
+
+    /* Locomotive scroll instance */
+    const locomotiveScroll = new LocomotiveScroll();
+
+    return () => {
+      // destroy before we mount new page
+      locomotiveScroll.destroy();
+    }
+  }, [])
+
   return (
     <>
-      <div className='page-container adminui'>
+      <div className='page-container aiguardrails'>
         <Link to="/works">
-          <wa-button pill appearance="plain" size="small">
+          <wa-button className="back-button" pill appearance="plain" size="small">
             <wa-icon slot="start" name="angle-left"></wa-icon>
             Back
           </wa-button></Link>
-        <section className='hero'>
-          asdf
-
+        <section className='aiguardrails-hero hero-settings'>
+          <div className='hero-text'>
+            <div>
+              <p>AI Guardrails</p>
+            </div>
+          </div>
+          <div className='hero-text-bg'></div>
+          <img src={`../../src/assets/aiguardrails.png`} alt={`AI Guardrails Thumbnail`} loading="lazy" />
         </section>
         <section className='page-body'>
           <section>

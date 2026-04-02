@@ -1,0 +1,207 @@
+.aboutme-container {
+  container-type: inline-size;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-top: calc(var(--nav-bar-height) + 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 0 var(--wa-space-l);
+}
+
+.aboutme-container h2 {
+  font-size: var(--wa-font-size-2xl);
+  margin: 0;
+  margin-bottom: var(--wa-space-m);
+}
+
+.aboutme-container h3 {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.aboutme-container p {
+  font-weight: var(--wa-font-weight-light);
+  margin-block: 0;
+}
+
+.what-i-do>div {
+  display: flex;
+  min-width: 498px;
+  gap: var(--wa-space-m);
+  flex-wrap: wrap;
+
+}
+
+.work-history>div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.work-history>ul {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  & li {
+    align-items: center;
+    display: grid;
+    gap: 24px;
+    padding: var(--wa-space-m);
+    grid-template-columns: 2fr 1fr;
+    border-block-end: 1px solid var(--wa-color-surface-border);
+    transition: color .3s ease;
+
+    &:hover,
+    &:active {
+      color: var(--wa-color-text-normal);
+    }
+  }
+
+  & li>div {
+
+    display: grid;
+    grid-template-areas: "year" "company";
+    grid-template-columns: 1fr 2fr;
+  }
+
+  & li {
+    color: var(--wa-color-text-quiet);
+  }
+
+}
+
+
+.skills {
+  & div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+
+  }
+
+  & ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: var(--wa-space-l);
+  }
+
+  & li:not([class="list-title"]) {
+    color: var(--wa-color-text-quiet);
+    font-weight: var(--wa-font-weight-light);
+    padding: var(--wa-space-2xs) 0;
+    transition: color .3s ease;
+
+    &:hover {
+      color: var(--wa-color-text-normal);
+    }
+  }
+
+
+
+  & .list-title {
+    margin-bottom: var(--wa-space-s);
+    font-size: var(--wa-font-size-l);
+    font-weight: var(--wa-font-weight-semibold);
+  }
+}
+
+.contact {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--wa-space-3xl);
+  padding-top: var(--wa-space-3xl);
+}
+
+.contact>div>div {
+  display: flex;
+  gap: var(--wa-space-m);
+  align-items: center;
+}
+
+.contact h2 {
+  font-weight: var(--wa-font-weight-light);
+  color: var(--wa-color-text-quiet);
+  margin: 0;
+}
+
+.contact wa-divider {
+  --width: 2px;
+  --spacing: 0;
+  width: var(--wa-font-size-2xl);
+}
+
+.email {
+  font-size: clamp(56px, 10vw, 104px);
+}
+
+.contact-btn {
+  display: flex;
+  gap: var(--wa-space-m);
+}
+
+.boxes {
+  width: 300px;
+  border: 1px solid #999;
+  padding: 24px;
+  background-color: var(--wa-color-surface-raised);
+  border-color: var(--wa-color-surface-border);
+  border-radius: var(--wa-border-radius-l);
+}
+
+@container (width < 767px) {
+  .work-history>ul {
+    & li {
+      padding: var(--wa-space-s);
+
+      grid-template-columns: 2fr 2fr;
+    }
+
+    & li>div {
+      grid-template-rows: 1fr;
+      gap: var(--wa-space-2xs);
+      grid-template-areas: "year" "company";
+      grid-template-columns: 2fr;
+    }
+
+    & li .year {
+      grid-area: year;
+      font-size: var(--wa-font-size-s);
+      font-weight: var(--wa-font-weight-light);
+    }
+
+    & li .company {
+      color: var(--wa-color-text-normal);
+      font-size: var(--wa-font-size-l);
+    }
+  }
+}
+
+
+@container (width < 641px) {
+  .work-history>ul {
+    & li {
+      padding: var(--wa-space-l) 0;
+      gap: var(--wa-space-m);
+      grid-template-columns: 1fr;
+    }
+
+    & li .company {
+      font-weight: var(--wa-font-weight-bold);
+    }
+
+  }
+
+  .skills .list-title {
+    margin-bottom: var(--wa-space-xs);
+  }
+
+  .skills ul {
+    margin-bottom: var(--wa-space-2xl);
+  }
+}

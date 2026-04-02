@@ -25,8 +25,8 @@ export class ThemeToggle extends LitElement {
 
   constructor() {
     super();
-    // localStorage.removeItem('theme'); 
-    this._currentTheme = localStorage.getItem('theme') ?? 'light';
+    // localStorage.removeItem('theme');
+    this._currentTheme = localStorage.getItem('theme') ?? 'dark';
     this._applyTheme(this._currentTheme);
   }
 

@@ -1,4 +1,6 @@
 section.hero {
+  --bg-linear-gradient: linear-gradient(to right, #0e0014a0, #0e001429);
+
   container-type: inline-size;
   height: 70vh;
   width: 100%;
@@ -9,67 +11,115 @@ section.hero {
 .page-container wa-button {
   position: absolute;
   top: 100px;
+  z-index: 1;
   left: var(--wa-space-s);
 }
 
-.page-container.adminui{
+.page-container.adminui {
   --btn-plain-bg-color-hover: #392344;
-  /* --font-color:  */
+}
+
+.page-container.designimport {
+  --btn-plain-bg-color-hover: #1e20317a;
+}
+
+.page-container.quickstart {
+  --btn-plain-bg-color-hover: #494b5ba0;
 }
 
 .page-body {
   display: grid;
-  grid-template-areas: 
-  "content menu";
+  grid-template-areas:
+    "content menu";
   grid-template-columns: 3fr 1fr;
-  /* background-color: red; */
   max-width: 1280px;
-  padding: 0 var(--wa-space-m);
+  padding: 0 var(--wa-space-l);
   margin: 0 auto;
 }
 
-.page-body section{
+.page-body section {
   grid-area: content;
 }
 
-page-tree{
+page-tree {
   grid-area: menu;
 }
 
-.back-button::part(base):hover{
+.back-button::part(base):hover {
   background-color: var(--btn-plain-bg-color-hover);
 }
 
-.back-button::part(base){
+.back-button::part(base) {
   transition: background-color .3s ease;
   color: var(--font-color-primary);
 
 }
 
-.adminui-hero{
-  background-image: linear-gradient(to right, #0e0014a0, #0e001429), url('../../assets/adminui.jpg');
+.adminui-hero {
+  background-color: var(--wa-color-purple-05);
+}
+
+.designimport-hero {
+  background-color: #676971;
+}
+
+.quickstart-hero {
+  background-color: #484a53ee;
+}
+
+.aiguardrails-hero {
+  background-color: #1e2336;
+}
+
+
+.adminui-hero .hero-text-bg {
+  background: linear-gradient(to right, #0d0b0ea0, #0e001429);
+}
+
+.designimport-hero .hero-text-bg {
+  background: linear-gradient(to right, #000000d3, #28282821);
+}
+
+.quickstart-hero .hero-text-bg {
+  background: linear-gradient(to right, #000000d3, #35353521);
+}
+
+.aiguardrails-hero .hero-text-bg {
+  background: linear-gradient(to right, #020202be, #7a7c8311);
+}
+
+.hero-text-bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 .hero-settings {
 
   width: 100%;
   height: 90vh;
-  
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  overflow: hidden;
+  /* This clips the zooming image */
+  position: relative;
+}
+
+.hero-settings img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero-text {
   font-family: var(--font-family);
   font-size: var(--wa-font-size-4xl);
   position: absolute;
+  z-index: 1;
   top: 30%;
   left: 10%;
   color: #ffffff;
 }
 
-@media (width<1024px){
+@media (width<1024px) {
   /* .page-body{
     flex-direction: column;
   } */

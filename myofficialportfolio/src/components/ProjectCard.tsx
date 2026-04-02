@@ -40,26 +40,30 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
   return (
     <>
-      <div className="card-container">
-        <Link to={link}>
-          <div className={`thumbnail-container ${alias}`}></div>
-        </Link>
-        <div className="details">
-          <div>
-            <div>
-              <div className="project-details font-title">{projtitle}</div>
-              <div className="subtitle">
-                <div>{year}</div>
-                <div>{position}</div>
-              </div>
-            </div>
-            <div className="desc">{desc}</div>
+
+      <Link to={link}>
+        <div className={`card-container `}>
+          <div className={`thumbnail-container ${alias}`}>
+            <img src={`../src/assets/${alias}.png`} alt={`${projtitle} Thumbnail`} />
           </div>
-          <div className="project-tags">
-            <Tags tags={tags} />
+          <div className="details">
+            <div>
+              <div>
+                <div className="project-details font-title">{projtitle}</div>
+                <div className="subtitle">
+                  <div>{year}</div>
+                  <div>{position}</div>
+                </div>
+              </div>
+              <div className="desc">{desc}</div>
+            </div>
+            <div className="project-tags">
+              <Tags tags={tags} />
+            </div>
           </div>
         </div>
-      </div>
+
+      </Link>
     </>
   );
 };

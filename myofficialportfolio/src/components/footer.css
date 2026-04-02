@@ -1,0 +1,40 @@
+footer {
+  color: var(--wa-color-text-quiet);
+  display: flex;
+  justify-content: space-between;
+  padding: var(--wa-space-m);
+}
+
+footer a {
+  text-decoration: none;
+  /* Removes the underline */
+  color: inherit;
+}
+
+footer p {
+  margin: 0;
+}
+
+.footer-credit {
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--wa-space-m);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wa-space-m);
+}
+
+@media (width < 640px) {
+  .footer-links {
+    display: none;
+  }
+
+  .footer-credit {
+    width: 100%;
+    align-items: center;
+  }
+}

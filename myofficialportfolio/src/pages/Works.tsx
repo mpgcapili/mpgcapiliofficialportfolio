@@ -1,5 +1,9 @@
 import ProjectCard from "../components/ProjectCard";
 import "./works.css";
+/* Import locomotive-scroll */
+import "locomotive-scroll/dist/locomotive-scroll.css";
+import LocomotiveScroll from "locomotive-scroll";
+import { useEffect } from "react";
 
 const featuredProj = [
   {
@@ -75,62 +79,83 @@ const featuredProj = [
     link: "/works/featured/aiguardrails",
   },
 ];
-const personalProj = [
-  {
-    title: "BOLT FOOD",
-    alias: "boltfood",
-    year: "2026",
-    position: "UI/UX Developer",
-    desc: "Rethinking the Bolt Food App Design",
-    tags: [
-      "Figma",
-      "Design Thinking",
-      "Wireframing",
-      "Prototype",
-      "Design System",
-      "Web Awesome",
-      "HTML",
-      "CSS",
-      "Javascript",
-      "Lit.dev",
-      "Storybook",
-      "Typescript",
-    ],
-    link: "/works/personalwork/boltfood",
-  },
-  //   {
-  //     title: "CRYPTO APP",
-  //     alias: "cryptoapp",
-  //     year: "2026",
-  //     position: "UI/UX Developer",
-  //     desc: "Redefining User Experience in Crypto Applications",
-  //     tags: [
-  //       "Figma",
-  //       "Design Thinking",
-  //       "Wireframing",
-  //       "Prototype",
-  //       "Design System",
-  //       "Web Awesome",
-  //       "HTML",
-  //       "CSS",
-  //       "Javascript",
-  //       "Lit.dev",
-  //       "Storybook",
-  //       "Typescript",
-  //     ],
-  //     link: "/works/personalwork/crypto",
-  //   },
-];
+// const personalProj = [
+//   {
+//     title: "BOLT FOOD",
+//     alias: "boltfood",
+//     year: "2026",
+//     position: "UI/UX Developer",
+//     desc: "Rethinking the Bolt Food App Design",
+//     tags: [
+//       "Figma",
+//       "Design Thinking",
+//       "Wireframing",
+//       "Prototype",
+//       "Design System",
+//       "Web Awesome",
+//       "HTML",
+//       "CSS",
+//       "Javascript",
+//       "Lit.dev",
+//       "Storybook",
+//       "Typescript",
+//     ],
+//     link: "/works/personalwork/boltfood",
+//   },
+//   {
+//     title: "CRYPTO APP",
+//     alias: "cryptoapp",
+//     year: "2026",
+//     position: "UI/UX Developer",
+//     desc: "Redefining User Experience in Crypto Applications",
+//     tags: [
+//       "Figma",
+//       "Design Thinking",
+//       "Wireframing",
+//       "Prototype",
+//       "Design System",
+//       "Web Awesome",
+//       "HTML",
+//       "CSS",
+//       "Javascript",
+//       "Lit.dev",
+//       "Storybook",
+//       "Typescript",
+//     ],
+//     link: "/works/personalwork/crypto",
+//   },
+// ];
 
 const Works = () => {
+  // target only the work-container to have smoothscroll
+  // this will disable smart nav because we defined fix height for the content, therefore not triggering the scrollbar
+  // @todo: find a way to fix this bug
+  useEffect(() => {
+    const content = document.querySelector('.work-container');
+    if (!content) return;
+    // const locomotiveScroll = new LocomotiveScroll();
+    const locomotiveScroll = new LocomotiveScroll({
+      lenisOptions: {
+        wrapper: content,
+        content: content,
+        syncTouch: true,
+      },
+    });
+
+    return () => {
+      locomotiveScroll.destroy();
+    }
+  }, [])
+
   return (
     <>
-      <div className="work-container">
+      <div className="work-container" >
         <div>
-          <h1 className="font-title">Works</h1>
+          {/* <h1 className="font-title">Works</h1> */}
           <wa-tab-group>
             <wa-tab panel="featured-work">Featured Work</wa-tab>
-            <wa-tab panel="personal-project">Personal Projects</wa-tab>
+            {/* personal project not yet done */}
+            {/* <wa-tab panel="personal-project">Personal Projects</wa-tab> */}
             <wa-tab-panel name="featured-work">
               <div>
                 {featuredProj.map((project, key) => (
@@ -147,7 +172,7 @@ const Works = () => {
                 ))}
               </div>
             </wa-tab-panel>
-            <wa-tab-panel name="personal-project">
+            {/* <wa-tab-panel name="personal-project">
               <div>
                 {personalProj.map((project, key) => (
                   <ProjectCard
@@ -162,7 +187,7 @@ const Works = () => {
                   />
                 ))}
               </div>
-            </wa-tab-panel>
+            </wa-tab-panel> */}
           </wa-tab-group>
         </div>
       </div>
