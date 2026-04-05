@@ -11,6 +11,10 @@
   --btn-plain-bg-color-active: var(--wa-color-fill-quiet, var(--wa-color-neutral-fill-quiet));
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 /* utility */
 .remove-margin {
   margin: 0;

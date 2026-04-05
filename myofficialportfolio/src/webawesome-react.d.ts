@@ -16,7 +16,18 @@ declare module 'react' {
       'theme-toggle':HTMLAttributes<HTMLElement>;
       'page-section':HTMLAttributes<HTMLElement>;
       'page-subsection':HTMLAttributes<HTMLElement>;
-      'compare-img':HTMLAttributes<HTMLElement>;
+      'compare-img':HTMLAttributes<HTMLElement> & {
+        label1?: string;
+        label2?: string;
+        imglabel?: string;
+        comparable?: boolean;
+      };
+      'carousel-img':HTMLAttributes<HTMLElement> & {
+        imgs?: string[];
+        badge?: string;
+        // imglabel?: string;
+        // comparable?: boolean;
+      };
       'page-tree':HTMLAttributes<HTMLElement>;
       'wa-button':Partial<WaButtonProps & BaseProps<WaButton>> ;
     }

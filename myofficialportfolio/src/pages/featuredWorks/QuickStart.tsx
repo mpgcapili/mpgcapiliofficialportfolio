@@ -7,17 +7,32 @@ import '../../components/page-subsection.tsx';
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import LocomotiveScroll from "locomotive-scroll";
 
+import ux1after from '../../assets/quickstart/ux1after.jpg';
+import ux1before from '../../assets/quickstart/ux1before.jpg';
+import ux2after from '../../assets/quickstart/ux2after.jpg';
+import ux2before from '../../assets/quickstart/ux2before.jpg';
+import ux3cardafter from '../../assets/quickstart/ux3cardafter.jpg';
+import ux3cardbefore from '../../assets/quickstart/ux3cardbefore.jpg';
+import ux3fullafter from '../../assets/quickstart/ux3fullafter.jpg';
+import ux3fullbefore from '../../assets/quickstart/ux3fullbefore.jpg';
+import ux3tableafter from '../../assets/quickstart/ux3tableafter.jpg';
+import ux3tablebefore from '../../assets/quickstart/ux3tablebefore.jpg';
+
 const QuickStart = () => {
 
+  const locomotiveScroll = new LocomotiveScroll();
   useEffect(() => {
     /* Locomotive scroll instance */
-    const locomotiveScroll = new LocomotiveScroll();
 
     return () => {
       // destroy before we mount new page
       locomotiveScroll.destroy();
     }
   }, [])
+
+  const goTo = (id: string) => {
+    locomotiveScroll.scrollTo(id, { offset: -80 });
+  };
 
   return (
     <>
@@ -37,17 +52,22 @@ const QuickStart = () => {
           <img src={`../../src/assets/quickstart.png`} alt={`QuickStart Thumbnail`} loading="lazy" />
         </section>
         <section className='page-body'>
+          <page-tree>
+            <li slot='list' onClick={() => goTo('#project')}>Project</li>
+            <li slot='list' onClick={() => goTo('#role')}>Role</li>
+            <li slot='list' onClick={() => goTo('#ux1')}>UX #1: Improved Card's Data Hierarcy</li>
+            <li slot='list' onClick={() => goTo('#ux2')}>UX #2: Optimizing White Space for Scannability</li>
+            <li slot='list' onClick={() => goTo('#ux3')}>UX #3: Implemented Dark Theme</li>
+            <li slot='list' onClick={() => goTo('#ux4')}>UX #4: Introduced Responsiveness</li>
+          </page-tree>
           <section>
-            Tree
-          </section>
-          <section>
-            <page-section>
+            <page-section id="project">
               <span slot='context'>Project</span>
               <span slot='title'>QuickStart</span>
               <span slot='subtitle'>A self-service platform that allow users to deploy, manage, and monitor server instances.</span>
             </page-section>
 
-            <page-section>
+            <page-section id="role">
               <span slot='context'>Role</span>
               <span slot='title'>UI/UX Developer</span>
               <span slot='subtitle'>Responsible for UI/UX design improvement and as well
@@ -55,7 +75,7 @@ const QuickStart = () => {
               </span>
             </page-section>
 
-            <page-section>
+            <page-section id="ux1">
               <span slot='context'>UX #1</span>
               <span slot='title'>Improved Card's Data Hierarchy</span>
               <span slot='body'>
@@ -64,6 +84,12 @@ const QuickStart = () => {
                   <span slot='subtitle'>The data card lacked visual hierarchy and consistent spacing.
                     Poor contrast and an unoptimized data summary made it difficult for users to scan information quickly.
                   </span>
+
+                  <div slot='body'>
+                    <compare-img >
+                      <img slot="img" src={ux1before} alt="old design" />
+                    </compare-img>
+                  </div>
                 </page-subsection>
 
                 <page-subsection>
@@ -72,25 +98,45 @@ const QuickStart = () => {
                   </span>
                 </page-subsection>
               </span>
+              <div slot='body'>
+                <compare-img label1="Before" label2="After" comparable>
+                  <img slot="before" src={ux1before} alt="design import ux 1 before" />
+                  <img slot="after" src={ux1after} alt="design import  ux 1 after" />
+                </compare-img>
+              </div>
             </page-section>
 
-            <page-section>
+            <page-section id="ux2">
               <span slot='context'>UX #2</span>
               <span slot='title'>Optimizing White Space for Scannability</span>
               <span slot='body'>
                 <page-subsection>
                   <span slot='title'>Old Design:</span>
                   <span slot='subtitle'>The UI lacked negative space, causing a cluttered layout where data was difficult to distinguish and scan.</span>
+
+                  <div slot='body'>
+                    <compare-img >
+                      <img slot="img" src={ux2before} alt="old design" />
+                    </compare-img>
+                  </div>
                 </page-subsection>
 
                 <page-subsection>
                   <span slot='title'>Old vs New Design:</span>
                   <span slot='subtitle'>I improved the negative space to reduce visual noise and established a clear hierarchy, making the information easier to scan and read.</span>
+
+                  <div slot='body'>
+                    <compare-img label1="Before" label2="After" comparable>
+                      <img slot="before" src={ux2before} alt="design import ux 1 before" />
+                      <img slot="after" src={ux2after} alt="design import  ux 1 after" />
+                    </compare-img>
+                  </div>
                 </page-subsection>
+
               </span>
             </page-section>
 
-            <page-section>
+            <page-section id="ux3">
               <span slot='context'>UX #3</span>
               <span slot='title'>Implemented Dark Theme</span>
               <span slot='subtitle'>QuickStart lacked a Dark theme, I designed and coded a full Dark Theme to improved
@@ -98,41 +144,36 @@ const QuickStart = () => {
               </span>
               <span slot='body'>
                 <page-subsection>
-                  <span slot='title'>Old Design:</span>
-                  <span slot='subtitle'>For context, this is the detailed settings view of a card.
-                    The layout contains significant unused space,
-                    while key components feel compressed, making the interface
-                    appear crowded and visually overwhelming.
-                  </span>
+                  <span slot='title'>Card</span>
+                  <div slot='body'>
+                    <compare-img label1="Dark Theme" label2="Light Theme" comparable>
+                      <img slot="before" src={ux3cardbefore} alt="design import ux 1 before" />
+                      <img slot="after" src={ux3cardafter} alt="design import  ux 1 after" />
+                    </compare-img>
+                  </div>
                 </page-subsection>
-
                 <page-subsection>
-                  <span slot='title'>Old vs New Design:</span>
-                  <span slot='subtitle'>The redesign optimizes space usage, reduces visual noise,
-                    and presents the content in a more structured layout.</span>
+                  <span slot='title'>Table</span>
+                  <div slot='body'>
+                    <compare-img label1="Dark Theme" label2="Light Theme" comparable>
+                      <img slot="before" src={ux3tablebefore} alt="design import ux 1 before" />
+                      <img slot="after" src={ux3tableafter} alt="design import  ux 1 after" />
+                    </compare-img>
+                  </div>
+                </page-subsection>
+                <page-subsection>
+                  <span slot='title'>Full Web</span>
+                  <div slot='body'>
+                    <compare-img label1="Dark Theme" label2="Light Theme" comparable>
+                      <img slot="before" src={ux3fullbefore} alt="design import ux 1 before" />
+                      <img slot="after" src={ux3fullafter} alt="design import  ux 1 after" />
+                    </compare-img>
+                  </div>
                 </page-subsection>
               </span>
             </page-section>
 
-            <page-section>
-              <span slot='context'>UX #4</span>
-              <span slot='title'>Introduced Responsiveness</span>
-              <span slot='body'>
-                <page-subsection>
-                  <span slot='title'>Old Design:</span>
-                  <span slot='subtitle'>Below is the first iteration of the redesigned layout. At this stage,
-                    Responsiveness had not yet been addressed, affecting usability
-                    and layout clarity
-                  </span>
-                </page-subsection>
 
-                <page-subsection>
-                  <span slot='title'>Old vs New Design:</span>
-                  <span slot='subtitle'>The redesigned layout scales effectively to smaller screen sizes,
-                    ensuring intuitive navigation, clear data readability, and easy access to key features.</span>
-                </page-subsection>
-              </span>
-            </page-section>
           </section>
 
         </section>

@@ -5,7 +5,7 @@ export class PageSection extends LitElement {
   static styles = css`
 
     section[part="base"]{
-      margin-top: 80px;
+      margin-bottom: 80px;
     }
 
     .context-container {

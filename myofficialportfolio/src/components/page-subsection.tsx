@@ -3,6 +3,9 @@ import { css, html, LitElement, type PropertyDeclarations } from "lit";
 export class PageSubSection extends LitElement {
 
   static styles = css`
+    section{
+      margin: var(--wa-space-xs) 0;
+    }
     h4,
     p{
       margin: 0;
@@ -14,6 +17,7 @@ export class PageSubSection extends LitElement {
       color: var(--wa-color-text-quiet);
     }
     div{
+      margin-block-start: var(--wa-space-m);
       margin-block-end: var(--wa-space-xl);
     }
   `;
