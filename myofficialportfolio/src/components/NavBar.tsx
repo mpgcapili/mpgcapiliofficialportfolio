@@ -122,7 +122,9 @@ const NavBar = () => {
         ref={navRef}
         className={navbarclasses}>
         <div>
-          <h3 style={{ fontFamily: "ClashDisplay, sans-serif" }}>MIGUEL CAPILI</h3>
+          <Link className="react-link" to="/works">
+            <h3 style={{ fontFamily: "ClashDisplay, sans-serif" }}>MIGUEL CAPILI</h3>
+          </Link>
           <ul className="nav-items hide">
             <LinkComponent />
           </ul>
