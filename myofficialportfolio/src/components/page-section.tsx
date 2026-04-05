@@ -1,4 +1,4 @@
-import { css, html, LitElement, type PropertyDeclarations } from "lit";
+import { css, html, LitElement } from "lit";
 
 export class PageSection extends LitElement {
 

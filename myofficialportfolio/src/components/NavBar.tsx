@@ -3,13 +3,11 @@ import "./navbar.css";
 import { useEffect, useRef, useState } from "react";
 /* Import locomotive-scroll */
 import "locomotive-scroll/dist/locomotive-scroll.css";
-import LocomotiveScroll from "locomotive-scroll";
 
 /* Locomotive scroll instance */
 const NavBar = () => {
 
   const fullUrl = useLocation();
-  const [url, setUrl] = useState(fullUrl)
   const currUrl = fullUrl.pathname;
   const [isOpen, setIsOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './page-content.css';
 import { Link } from 'react-router-dom';
 import '../../components/page-section.tsx';

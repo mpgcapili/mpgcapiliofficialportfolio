@@ -10,7 +10,6 @@ import QuickStart from './pages/featuredWorks/QuickStart';
 import NotFound from './pages/NotFound';
 import BoltFood from './pages/personalProjects/BoltFood';
 import Crypto from './pages/personalProjects/Crypto';
-import Footer from './components/Footer';
 
 const App = () => {
   return (

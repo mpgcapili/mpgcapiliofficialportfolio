@@ -1,5 +1,4 @@
-// import { LitElement, css, html } from "lit";
-import React from "react";
+
 import "./projectcard.css";
 import { Link } from "react-router-dom";
 
