@@ -15,8 +15,8 @@ const Footer = () => {
           </div>
         </div>
         <div className='footer-links'>
-          <a href="">LinkedIn</a>
-          <a href="">MPGCAPILI@GMAIL.COM</a>
+          <a href="https://www.linkedin.com/in/m-p-c/" target="_blank" rel="noopener noreferrer"> <wa-icon slot="start" name="square-linkedin" family="brands"></wa-icon> LinkedIn</a>
+          <a href="mailto:miguel@mpgcapili.com"> <wa-icon slot="start" name="envelope"></wa-icon> MPGCAPILI@GMAIL.COM</a>
         </div>
 
       </footer>
