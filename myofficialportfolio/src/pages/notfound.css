@@ -5,8 +5,8 @@
 }
 
 .notfound h1 {
-
   position: absolute;
   left: 16px;
+  font-size: clamp(24px, 5vw, 48px);
   top: 15%;
 }
