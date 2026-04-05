@@ -156,8 +156,17 @@ const AboutMe = () => {
             </span>
           </div>
           <div className='contact-btn'>
-            <wa-button size="small" pill>LinkedIn</wa-button>
-            <wa-button size="small" pill>Email me at mpgcapili@gmail.com</wa-button>
+            <a href="https://www.linkedin.com/in/m-p-c/" target="_blank" rel="noopener noreferrer">
+              <wa-button size="small" pill>
+                <wa-icon slot="start" name="square-linkedin" family="brands"></wa-icon>
+                LinkedIn
+              </wa-button></a>
+            <a href="mailto:miguel@mpgcapili.com">
+              <wa-button size="small" pill>
+                <wa-icon slot="start" name="envelope"></wa-icon>
+                Email me at mpgcapili@gmail.com
+              </wa-button>
+            </a>
           </div>
         </section>
       </div>

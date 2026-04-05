@@ -15,6 +15,12 @@ html {
   scrollbar-gutter: stable;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
 /* utility */
 .remove-margin {
   margin: 0;
