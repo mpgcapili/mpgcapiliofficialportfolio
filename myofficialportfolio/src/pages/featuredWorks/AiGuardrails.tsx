@@ -9,8 +9,6 @@ import '../../components/page-tree.tsx';
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import LocomotiveScroll from "locomotive-scroll";
 
-import aiguardrailsHero from "../../../public/aiguardrails.png";
-
 import ux1subafter from '../../assets/aiguardrails/ux1subafter.jpg';
 import ux1subbefore from '../../assets/aiguardrails/ux1subbefore.jpg';
 import ux1svcafter from '../../assets/aiguardrails/ux1svcafter.jpg';
@@ -85,7 +83,7 @@ const AiGuardrails = () => {
             </div>
           </div>
           <div className='hero-text-bg'></div>
-          <img src={aiguardrailsHero} alt={`AI Guardrails Thumbnail`} loading="lazy" />
+          <img src={'/aiguardrails.png'} alt={`AI Guardrails Thumbnail`} loading="lazy" />
         </section>
         <section className='page-body'>
           <page-tree>

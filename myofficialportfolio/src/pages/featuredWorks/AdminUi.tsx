@@ -9,8 +9,6 @@ import '../../components/page-tree.tsx';
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import LocomotiveScroll from "locomotive-scroll";
 
-import adminuiHero from "../../../public/adminui.png";
-
 import ux1after from '../../assets/adminui/ux1after.jpg';
 import ux1before from '../../assets/adminui/ux1before.jpg';
 import ux1old from '../../assets/adminui/ux1old.jpg';
@@ -139,7 +137,7 @@ const AdminUi = () => {
             </div>
           </div>
           <div className='hero-text-bg'></div>
-          <img src={adminuiHero} alt={`ADMIN UI Thumbnail`} loading="lazy" />
+          <img src={'/adminui.png'} alt={`ADMIN UI Thumbnail`} loading="lazy" />
         </section>
 
         <section className='page-body'>
