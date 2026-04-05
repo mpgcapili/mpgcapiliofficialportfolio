@@ -26,7 +26,7 @@ export class CarouselImg extends LitElement {
       wa-button:is(.back, .next)::part(base){
         /* height: 100%;
         background-color: transparent; */
-        color: var(--wa-color-neutral-95);
+        /* color: var(--wa-color-neutral-95); */
       }
 
       wa-button{
