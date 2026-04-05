@@ -8,6 +8,8 @@ import '../../components/carousel-img.tsx';
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import LocomotiveScroll from "locomotive-scroll";
 
+import designimportHero from "../../assets/designimport.png";
+
 import ux2after from '../../assets/designimport/ux2after.jpg';
 import ux3after from '../../assets/designimport/ux3after.jpg';
 import ux4after from '../../assets/designimport/ux4after.jpg';
@@ -95,7 +97,7 @@ const DesignImport = () => {
             </div>
           </div>
           <div className='hero-text-bg'></div>
-          <img src={`../../src/assets/designimport.png`} alt={`Design Import Thumbnail`} loading="lazy" />
+          <img src={designimportHero} alt={`Design Import Thumbnail`} loading="lazy" />
 
         </section>
         <section className='page-body'>

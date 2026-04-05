@@ -7,6 +7,8 @@ import '../../components/page-subsection.tsx';
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import LocomotiveScroll from "locomotive-scroll";
 
+import quickstartHero from "../../assets/quickstart.png";
+
 import ux1after from '../../assets/quickstart/ux1after.jpg';
 import ux1before from '../../assets/quickstart/ux1before.jpg';
 import ux2after from '../../assets/quickstart/ux2after.jpg';
@@ -49,7 +51,7 @@ const QuickStart = () => {
             </div>
           </div>
           <div className='hero-text-bg'></div>
-          <img src={`../../src/assets/quickstart.png`} alt={`QuickStart Thumbnail`} loading="lazy" />
+          <img src={quickstartHero} alt={`QuickStart Thumbnail`} loading="lazy" />
         </section>
         <section className='page-body'>
           <page-tree>
