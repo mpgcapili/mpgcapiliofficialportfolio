@@ -9,7 +9,7 @@ import '../../components/page-tree.tsx';
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import LocomotiveScroll from "locomotive-scroll";
 
-import aiguardrailsHero from "../../assets/aiguardrails.png";
+import aiguardrailsHero from "../../../public/aiguardrails.png";
 
 import ux1subafter from '../../assets/aiguardrails/ux1subafter.jpg';
 import ux1subbefore from '../../assets/aiguardrails/ux1subbefore.jpg';

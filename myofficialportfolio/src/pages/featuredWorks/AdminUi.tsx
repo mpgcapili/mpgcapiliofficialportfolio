@@ -9,7 +9,7 @@ import '../../components/page-tree.tsx';
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import LocomotiveScroll from "locomotive-scroll";
 
-import adminuiHero from "../../assets/adminui.png";
+import adminuiHero from "../../../public/adminui.png";
 
 import ux1after from '../../assets/adminui/ux1after.jpg';
 import ux1before from '../../assets/adminui/ux1before.jpg';

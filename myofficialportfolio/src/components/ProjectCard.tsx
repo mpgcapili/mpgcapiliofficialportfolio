@@ -43,7 +43,7 @@ const ProjectCard = ({
       <Link to={link}>
         <div className={`card-container `}>
           <div className={`thumbnail-container ${alias}`}>
-            <img src={`../src/assets/${alias}.png`} alt={`${projtitle} Thumbnail`} />
+            <img src={`../../../public/${alias}.png`} alt={`${projtitle} Thumbnail`} />
           </div>
           <div className="details">
             <div>
