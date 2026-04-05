@@ -1,0 +1,12 @@
+.notfound {
+  height: 70vh;
+  width: 100%;
+  position: relative;
+}
+
+.notfound h1 {
+
+  position: absolute;
+  left: 16px;
+  top: 15%;
+}
