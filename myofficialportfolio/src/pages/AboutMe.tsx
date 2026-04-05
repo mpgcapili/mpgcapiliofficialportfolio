@@ -58,9 +58,11 @@ const AboutMe = () => {
         <section className='work-history'>
           <div>
             <h2 className='font-title'>Work History</h2>
-            <wa-button appearance="plain" size="small" pill>
-              <wa-icon slot="start" name="download"></wa-icon>
-              Download Resume</wa-button>
+            <a href="./Capili, Miguel Paulo.pdf" target="_blank" download>
+              <wa-button appearance="plain" size="small" pill>
+                <wa-icon slot="start" name="download"></wa-icon>
+                Download Resume</wa-button>
+            </a>
           </div>
           <ul>
             <li>
