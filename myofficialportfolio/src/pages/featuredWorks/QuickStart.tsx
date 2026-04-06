@@ -46,8 +46,17 @@ const QuickStart = () => {
           <div className='hero-text'>
             <div>
               <p>QUICKSTART</p>
+              <div className="sub-details">
+                <span>2023 - 2024</span>
+                <wa-icon name="circle"></wa-icon>
+                <span>UI/UX Designer</span>
+              </div>
+              <div className="short-desc">
+                <p className='desc'>A self-service platform that allows users to deploy, manage, and monitor server instances.</p>
+              </div>
             </div>
           </div>
+          <p className='disclaimer'><i>Official projects are protected by NDA; shared content is anonymized or summarized.</i></p>
           <div className='hero-text-bg'></div>
           <img src={'/quickstart.png'} alt={`QuickStart Thumbnail`} loading="lazy" />
         </section>
@@ -64,7 +73,7 @@ const QuickStart = () => {
             <page-section id="project">
               <span slot='context'>Project</span>
               <span slot='title'>QuickStart</span>
-              <span slot='subtitle'>A self-service platform that allow users to deploy, manage, and monitor server instances.</span>
+              <span slot='subtitle'>A self-service platform that provides a user-friendly interface for deploying, managing, and monitoring servers.</span>
             </page-section>
 
             <page-section id="role">

@@ -166,7 +166,7 @@ const AboutMe = () => {
             <a href="mailto:miguel@mpgcapili.com">
               <wa-button size="small" pill>
                 <wa-icon slot="start" name="envelope"></wa-icon>
-                Email me at mpgcapili@gmail.com
+                Send me an email!
               </wa-button>
             </a>
           </div>

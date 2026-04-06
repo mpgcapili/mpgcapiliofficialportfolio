@@ -27,7 +27,7 @@
 
 .what-i-do>div {
   display: flex;
-  min-width: 498px;
+  /* min-width: 498px; */
   gap: var(--wa-space-m);
   flex-wrap: wrap;
 

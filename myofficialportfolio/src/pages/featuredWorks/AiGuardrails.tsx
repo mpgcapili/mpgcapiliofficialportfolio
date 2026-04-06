@@ -80,8 +80,19 @@ const AiGuardrails = () => {
           <div className='hero-text'>
             <div>
               <p>AI Guardrails</p>
+              <div className="sub-details">
+                <span>2023 - 2024</span>
+                <wa-icon name="circle"></wa-icon>
+                <span>UI/UX Designer</span>
+              </div>
+              <div className="short-desc">
+                <p className='desc'>
+                  A web app that allows users to manage their AI subscription and team token distributions.
+                </p>
+              </div>
             </div>
           </div>
+          <p className='disclaimer'><i>Official projects are protected by NDA; shared content is anonymized or summarized.</i></p>
           <div className='hero-text-bg'></div>
           <img src={'/aiguardrails.png'} alt={`AI Guardrails Thumbnail`} loading="lazy" />
         </section>

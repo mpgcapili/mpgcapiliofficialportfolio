@@ -15,6 +15,15 @@ section.hero {
   left: var(--wa-space-s);
 }
 
+.hero-settings .disclaimer {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 10%;
+  color: #f1f2f3d0;
+
+}
+
 .page-container.adminui {
   --btn-plain-bg-color-hover: #392344;
   /* height: 100vh; */
@@ -106,6 +115,8 @@ page-tree::part(base) {
   width: 100%;
 }
 
+
+
 .hero-settings {
 
   width: 100%;
@@ -122,14 +133,40 @@ page-tree::part(base) {
 }
 
 .hero-text {
-  font-family: var(--font-family);
+
   font-size: var(--wa-font-size-4xl);
+  font-weight: var(--wa-font-weight-bold);
   position: absolute;
   z-index: 1;
   top: 30%;
   left: 10%;
-  color: #ffffff;
+  color: #f1f2f3;
 }
+
+.hero-text p:not([class="desc"]) {
+  font-family: var(--font-family);
+  margin: 0;
+}
+
+.hero-text .sub-details {
+  display: flex;
+  font-size: var(--wa-font-size-l);
+  align-items: center;
+  gap: var(--wa-space-m);
+  font-weight: var(--wa-font-weight-normal);
+}
+
+.hero-text wa-icon {
+  font-size: var(--wa-font-size-2xs);
+}
+
+.hero-text .short-desc p {
+  margin-top: var(--wa-space-2xl);
+  font-size: var(--wa-font-size-m);
+  font-weight: var(--wa-font-weight-normal);
+  color: #f1f2f3;
+}
+
 
 .personas {
   display: grid;
